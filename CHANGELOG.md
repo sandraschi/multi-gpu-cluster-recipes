@@ -8,12 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Scale-out and multi-host fleet recipes (planned): PCIe 5 switch-card docks,
   notebook+desktop pool mobility at fleet scale.
 
 ## [0.2.0] - 2026-08-16
 
 ### Added
+
 - Docusaurus static playbook website in `website/` (dark theme, fleet
   palette) rendering the canonical `docs/` folder directly - no content
   duplication.
@@ -25,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-08-16
 
 ### Added
+
 - Initial scaffold of the multi-GPU cluster recipe collection.
 - `README.md`: economics rationale (cloud cost vs local build), VRAM
   thrashing problem, reference architecture, host combo matrix (open-frame

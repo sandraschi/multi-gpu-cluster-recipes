@@ -16,7 +16,7 @@ Two ways to attach the secondaries, both covered here:
 | **External GPD combo - MCIO 8i (current gen)** | MCIO 8i adapter card in the server + GPD G2 eGPU dock linked by an SFF-TA-1016 cable | Double the OCuLink bandwidth, box has a built-in 800 W PSU |
 | **External GPD combo - OCuLink (previous gen)** | PCIe x16 to OCuLink adapter card in the server + external GPU boxes linked by SFF-8611 cables | Cards living outside the rig at half the MCIO bandwidth |
 
-### Every host combination is covered
+## Every host combination is covered
 
 The pools are logical, not physical - any host with a PCIe-capable link can
 run a pool. The repo covers the full ladder:
@@ -68,7 +68,7 @@ With 3 physical VRAM pools the triage stops:
 
 ## Reference architecture
 
-```
+```text
 Open-frame rig (Goliath-style)
 |
 |-- GPU 0  RTX 4090 24 GB ........ PRIMARY pool
@@ -162,7 +162,7 @@ Full detail in [docs/worker-orchestration.md](docs/worker-orchestration.md).
 
 ## Repository layout
 
-```
+```text
 multi-gpu-cluster-recipes/
 |-- README.md                       # This file - overview and rationale
 |-- CONTRIBUTING.md                 # Recipe format, hard rules, validation gates
@@ -194,7 +194,8 @@ The docs are published as a **Docusaurus static site** (dark theme, fleet
 palette) - no backend, it renders the same `docs/` Markdown that GitHub
 shows.
 
-- **Published**: https://sandraschi.github.io/multi-gpu-cluster-recipes/
+- **Published**:
+  [https://sandraschi.github.io/multi-gpu-cluster-recipes/](https://sandraschi.github.io/multi-gpu-cluster-recipes/)
   (rebuilt on every push to `main` via `deploy-website.yml`)
 - **Local dev** (port 11136, registered in the fleet port reservoir):
 

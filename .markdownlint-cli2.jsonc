@@ -1,0 +1,17 @@
+{
+  // markdownlint-cli2 config for multi-gpu-cluster-recipes.
+  // Matches the repo's documented style: wide tables, sibling duplicate
+  // headings in CHANGELOG, long hardware tables.
+  "config": {
+    "MD013": {
+      "line_length": 120,
+      "code_blocks": false,
+      "tables": false
+    },
+    "MD024": {
+      "siblings_only": true
+    },
+    "MD033": false,
+    "MD041": false
+  }
+}

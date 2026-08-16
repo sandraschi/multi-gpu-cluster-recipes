@@ -137,7 +137,7 @@ the **two-piece external combo** popularized by GPD's eGPU ecosystem: an
 cable. Two generations exist - OCuLink (previous) and MCIO 8i (current, the
 GPD G2 dock).
 
-```
+```text
 Server (open frame)
 |
 |-- GPU 0  RTX 4090 ................ native PCIe x16 slot (full bandwidth)

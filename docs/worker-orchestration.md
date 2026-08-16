@@ -11,7 +11,7 @@ queue rather than stealing VRAM from the interactive instance.
 
 ## 1. Pool topology
 
-```
+```text
 GPU 0  RTX 4090 24 GB ...... PRIMARY pool  (interactive)
 GPU 1  RTX 4060 Ti 16 GB ... RESIDENT pool (always-on assistant model)
 GPU 2  RTX 4060 Ti 16 GB ... WORKER pool   (batch / long-running loops)

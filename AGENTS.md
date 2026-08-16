@@ -32,6 +32,5 @@ port 11136 (`npm run start`), GitHub Pages deploy via
 
 ## Docs status
 
-This is a recipe repo, not an MCP server: no code, no ports, no webapp.
-A local playbook website (static site over these docs) is a planned roadmap
-item - see README.md Roadmap.
+Documentation/recipe repo with a Docusaurus playbook website (`website/`,
+port 11136, GitHub Pages). Not an MCP server: no backend code, no MCP tools.
