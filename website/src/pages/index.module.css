@@ -1,0 +1,66 @@
+.hero {
+  background: linear-gradient(180deg, #18181b 0%, #09090b 100%);
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  color: #a1a1aa;
+  max-width: 42rem;
+  margin: 0 auto 2rem;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  display: inline-block;
+  background: #f59e0b;
+  color: #09090b;
+  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background: #fbbf24;
+  color: #09090b;
+  text-decoration: none;
+}
+
+.secondaryButton {
+  display: inline-block;
+  background: transparent;
+  color: #e4e4e7;
+  border: 1px solid #3f3f46;
+  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.secondaryButton:hover {
+  border-color: #71717a;
+  color: #fafafa;
+  text-decoration: none;
+}
+
+.card {
+  height: 100%;
+  border: 1px solid #27272a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  background: #18181b;
+}

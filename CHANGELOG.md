@@ -11,6 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Scale-out and multi-host fleet recipes (planned): PCIe 5 switch-card docks,
   notebook+desktop pool mobility at fleet scale.
 
+## [0.2.0] - 2026-08-16
+
+### Added
+- Docusaurus static playbook website in `website/` (dark theme, fleet
+  palette) rendering the canonical `docs/` folder directly - no content
+  duplication.
+- Website dev port 11136 (registered in the fleet port reservoir).
+- `deploy-website.yml` workflow: build + publish to GitHub Pages on every
+  push to `main`.
+- `docs/README.md` landing page (also the `/docs/` route on the site).
+
 ## [0.1.0] - 2026-08-16
 
 ### Added

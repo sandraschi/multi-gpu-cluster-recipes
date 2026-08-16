@@ -13,6 +13,14 @@ external links, including notebook host combos and worker orchestration.
 4. `docs/monitoring-and-ops.md` - monitoring, thresholds, runbooks
 5. `docs/scale-up-hpc.md` - multi-dock and multi-host scale-out
 
+## Website
+
+`website/` is a Docusaurus static site that renders the `docs/` folder
+directly (path: `../docs` - single source of truth, no copy). Dev server on
+port 11136 (`npm run start`), GitHub Pages deploy via
+`.github/workflows/deploy-website.yml`. Any docs change must pass
+`cd website && npm run build` (onBrokenLinks throws).
+
 ## Rules
 
 - ASCII only in every file - no em dashes. The CI unicode gate fails on them.

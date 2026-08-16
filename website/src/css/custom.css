@@ -1,0 +1,28 @@
+:root {
+  --ifm-color-primary: #f59e0b;
+  --ifm-color-primary-dark: #d97706;
+  --ifm-color-primary-darker: #b45309;
+  --ifm-color-primary-light: #fbbf24;
+  --ifm-color-primary-lighter: #fcd34d;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(245, 158, 11, 0.1);
+}
+
+html[data-theme="dark"] {
+  --ifm-background-color: #09090b;
+  --ifm-background-surface-color: #18181b;
+  --ifm-color-content: #e4e4e7;
+  --ifm-color-content-secondary: #a1a1aa;
+  --ifm-color-emphasis-100: #27272a;
+  --ifm-color-emphasis-200: #3f3f46;
+  --ifm-color-emphasis-300: #52525b;
+  --ifm-hover-overlay: rgba(255, 255, 255, 0.05);
+  --docusaurus-highlighted-code-line-bg: rgba(245, 158, 11, 0.15);
+}
+
+/* Keep native form controls dark */
+select,
+input,
+textarea {
+  color-scheme: dark;
+}

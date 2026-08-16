@@ -41,6 +41,11 @@ phone call to support.
 npm install --global markdownlint-cli2
 markdownlint-cli2 "**/*.md" "#node_modules" "#.git"
 
+# Website build gate: the site renders docs/ directly and throws on
+# broken links - a docs change that breaks the site fails here
+cd website && npm ci && npm run build
+```
+
 # relative links + unicode check
 python - <<'EOF'
 import os, re, sys

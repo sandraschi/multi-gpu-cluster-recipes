@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Build output
+build/
+.docusaurus/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

@@ -170,18 +170,45 @@ multi-gpu-cluster-recipes/
 |-- AGENTS.md                       # Agent navigation map for this repo
 |-- llms.txt                        # LLM-facing index
 |-- docs/
+|   |-- README.md                   # Docs landing page
 |   |-- hardware-blueprint.md       # Power, undervolting, layout, connectivity
 |   |-- worker-orchestration.md     # GPU pools, resident models, worker daemons
 |   |-- monitoring-and-ops.md       # Monitoring, thresholds, runbooks
 |   `-- scale-up-hpc.md             # Multi-dock and multi-host scale-out
+|-- website/                        # Docusaurus static site over docs/
+|   |-- docusaurus.config.js        # Site config (port 11136, GitHub Pages baseUrl)
+|   `-- src/                        # Homepage + theme
 `-- .github/
     `-- workflows/
-        `-- docs-validation.yml     # Hourly doc lint + link check + auto-commit
+        |-- docs-validation.yml     # Hourly doc lint + link check + auto-commit
+        `-- deploy-website.yml      # Build + publish the site to GitHub Pages
 ```
 
 This is a **documentation/recipe-only repository** - no code, no ports, no
-webapp. A local playbook website (static site over these docs) is a planned
-roadmap item.
+webapp. The docs are published as a static playbook website - see
+[Website](#website).
+
+## Website
+
+The docs are published as a **Docusaurus static site** (dark theme, fleet
+palette) - no backend, it renders the same `docs/` Markdown that GitHub
+shows.
+
+- **Published**: https://sandraschi.github.io/multi-gpu-cluster-recipes/
+  (rebuilt on every push to `main` via `deploy-website.yml`)
+- **Local dev** (port 11136, registered in the fleet port reservoir):
+
+```bash
+cd website
+npm install
+npm run start        # http://127.0.0.1:11136/multi-gpu-cluster-recipes/
+npm run build        # production build into website/build/
+```
+
+The `docs/` folder is the single source of truth: the CI lint workflow and
+the site build both consume it. Changes to docs are validated by the
+`docs-validation` workflow (hourly + on push) and published by
+`deploy-website`.
 
 ## Quick start
 
@@ -196,14 +223,14 @@ roadmap item.
 ## Roadmap
 
 - [x] Core docs: hardware blueprint, worker orchestration, monitoring, scale-up
+- [x] Local playbook website (Docusaurus static site over `docs/`, port 11136, GitHub Pages deploy)
 - [ ] GPU pool isolation templates (Linux systemd + Windows PowerShell jobs)
 - [ ] Prometheus/Grafana per-pool dashboard compose
 - [ ] Undervolting presets per card SKU
 - [ ] OpenFOAM/freecad-mcp worker container recipes
 - [ ] GPD G2 (MCIO 8i) multi-dock build guide and benchmarks
 - [ ] Resident-model keepalive daemon reference implementation
-- [ ] Local playbook website (static site over `docs/`, e.g. VitePress or a
-      fleet-standard React webapp on a registered port)
+- [ ] Enhanced chat + skill batch webapp (fleet-standard React webapp, planned)
 
 ## License
 
