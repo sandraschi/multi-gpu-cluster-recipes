@@ -1,0 +1,96 @@
+name: docs-validation
+
+on:
+  schedule:
+    # Hourly - modern rapid-iteration loop: docs drift is caught within 60 min
+    - cron: "0 * * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "**.md"
+      - ".github/workflows/docs-validation.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    name: Lint and validate docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Markdown lint
+        run: |
+          npm install --global markdownlint-cli2
+          markdownlint-cli2 "**/*.md" "#**/node_modules/**" "#.git"
+
+      - name: Validate relative links
+        run: |
+          python - <<'EOF'
+          import os, re, sys
+
+          broken = []
+          for root, _, files in os.walk("."):
+              if ".git" in root or "node_modules" in root:
+                  continue
+              for name in files:
+                  if not name.endswith(".md"):
+                      continue
+                  path = os.path.join(root, name)
+                  text = open(path, encoding="utf-8").read()
+                  for m in re.finditer(r"\]\(([^)]+)\)", text):
+                      target = m.group(1).strip()
+                      if target.startswith(("http", "#", "mailto:")):
+                          continue
+                      local = target.split("#")[0]
+                      if not local:
+                          continue
+                      resolved = os.path.normpath(
+                          os.path.join(os.path.dirname(path), local)
+                      )
+                      if not os.path.exists(resolved):
+                          broken.append(f"{path} -> {target}")
+          if broken:
+              print("BROKEN LINKS:")
+              for b in broken:
+                  print(" ", b)
+              sys.exit(1)
+          print("All relative links OK")
+          EOF
+
+      - name: Unicode safety check (no em dashes)
+        run: |
+          if grep -rn $'\u2014' README.md docs/ .github/ 2>/dev/null; then
+            echo "EM DASH (U+2014) FOUND - replace with ASCII hyphen"
+            exit 1
+          fi
+          echo "Unicode check OK"
+
+  docs-push:
+    name: Commit any doc fixes
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No doc changes - nothing to commit"
+            exit 0
+          fi
+          git commit -m "docs: hourly validation pass"
+          git push

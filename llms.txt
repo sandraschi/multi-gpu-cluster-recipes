@@ -1,0 +1,21 @@
+# multi-gpu-cluster-recipes
+
+Practical guide for solo developers and tinkerers building budget multi-GPU
+local AI clusters: an RTX 4090 primary engine with RTX 4060 Ti 16 GB
+secondaries, connected via internal PCIe risers, OCuLink (SFF-8611), or MCIO
+8i (GPD G2 dock, SFF-TA-1016) external links - including notebook host combos
+and worker orchestration for resident models and background simulation jobs.
+
+## Docs
+
+- [README.md](README.md): overview, economics, reference architecture, host combo matrix
+- [docs/hardware-blueprint.md](docs/hardware-blueprint.md): power budget, PSU sizing, undervolting presets, open-frame layout, riser/OCuLink/MCIO connectivity
+- [docs/worker-orchestration.md](docs/worker-orchestration.md): primary/resident/worker GPU pools, device pinning, keepalive daemons, worker queues, VRAM budgets, host matrix
+- [docs/monitoring-and-ops.md](docs/monitoring-and-ops.md): per-pool monitoring, health checks, thresholds, runbooks
+- [docs/scale-up-hpc.md](docs/scale-up-hpc.md): multi-dock builds, multi-host fleets, cost curve
+
+## Meta
+
+- [CONTRIBUTING.md](CONTRIBUTING.md): how to add recipes, validation gates
+- [CHANGELOG.md](CHANGELOG.md): version history
+- License: MIT
