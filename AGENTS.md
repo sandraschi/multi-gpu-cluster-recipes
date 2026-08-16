@@ -21,6 +21,14 @@ port 11136 (`npm run start`), GitHub Pages deploy via
 `.github/workflows/deploy-website.yml`. Any docs change must pass
 `cd website && npm run build` (onBrokenLinks throws).
 
+Two surfaces:
+- GitHub Pages: `sandraschi.github.io/multi-gpu-cluster-recipes/`
+  (build with default baseUrl, deploy workflow).
+- Tailscale Funnel: `goliath.tailfab45.ts.net/multigpu/` - `start.ps1`
+  builds `website/build-funnel` with `BASE_URL=/` and serves it on 11136.
+  Funnel routes live in `mcp-central-docs/scripts/setup-funnel-routes.ps1`.
+  Canonical funnel doc: `mcp-central-docs/operations/TailscaleFunnel.md`.
+
 ## Rules
 
 - ASCII only in every file - no em dashes. The CI unicode gate fails on them.

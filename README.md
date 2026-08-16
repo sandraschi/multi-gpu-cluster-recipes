@@ -197,6 +197,13 @@ shows.
 - **Published**:
   [https://sandraschi.github.io/multi-gpu-cluster-recipes/](https://sandraschi.github.io/multi-gpu-cluster-recipes/)
   (rebuilt on every push to `main` via `deploy-website.yml`)
+- **Funnel (public)**:
+  [https://goliath.tailfab45.ts.net/multigpu/](https://goliath.tailfab45.ts.net/multigpu/)
+  (served from this machine via Tailscale Funnel, path `/multigpu/` -> port
+  11136; fleet funnel policy: `mcp-central-docs/operations/TailscaleFunnel.md`)
+- **Local**: `start.bat` (or `start.ps1`) at the repo root - builds the
+  funnel variant if stale, serves it on port 11136, opens the browser.
+  Dev server for editing: `cd website && npm run start`.
 - **Local dev** (port 11136, registered in the fleet port reservoir):
 
 ```bash

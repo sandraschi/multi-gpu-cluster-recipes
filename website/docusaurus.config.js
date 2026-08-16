@@ -7,7 +7,7 @@ const config = {
   tagline:
     "Budget multi-GPU local AI clusters for solo developers: RTX 4090 + 4060 Ti secondaries, over risers, OCuLink, or MCIO 8i docks.",
   url: "https://sandraschi.github.io",
-  baseUrl: "/multi-gpu-cluster-recipes/",
+  baseUrl: process.env.BASE_URL || "/multi-gpu-cluster-recipes/",
   organizationName: "sandraschi",
   projectName: "multi-gpu-cluster-recipes",
   onBrokenLinks: "throw",

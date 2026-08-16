@@ -23,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `deploy-website.yml` workflow: build + publish to GitHub Pages on every
   push to `main`.
 - `docs/README.md` landing page (also the `/docs/` route on the site).
+- `start.ps1` / `start.bat` launchers: build the funnel variant (`BASE_URL=/`)
+  when stale, serve on 11136, open the browser.
+- Public Tailscale Funnel surface: `goliath.tailfab45.ts.net/multigpu/`
+  (fleet funnel policy: `mcp-central-docs/operations/TailscaleFunnel.md`).
 
 ## [0.1.0] - 2026-08-16
 
