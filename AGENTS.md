@@ -22,6 +22,7 @@ port 11136 (`npm run start`), GitHub Pages deploy via
 `cd website && npm run build` (onBrokenLinks throws).
 
 Two surfaces:
+
 - GitHub Pages: `sandraschi.github.io/multi-gpu-cluster-recipes/`
   (build with default baseUrl, deploy workflow).
 - Tailscale Funnel: `goliath.tailfab45.ts.net/multigpu/` - `start.ps1`
